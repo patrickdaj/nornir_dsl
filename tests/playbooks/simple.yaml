@@ -1,0 +1,23 @@
+---
+- name: Simple playbook
+
+  import:
+    - nornir_utils.plugins.tasks.data
+
+  tasks_import:
+    - blah.yaml
+
+  tasks:
+    - name: Echo Data Test
+      task: echo_data
+      x: "{{ task.host['x_value'] }}"
+      y: [1, 2, 3]
+      #register: testing
+
+    - name: Conditional execution
+      task: echo_data
+      x: 10
+      test:
+        - result.result["x"] == 9
+      fail_task: true
+

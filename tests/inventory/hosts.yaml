@@ -1,0 +1,8 @@
+---
+localhost:
+    hostname: 127.0.0.1
+    username: patrick
+    password: testing
+    platform: linux
+    data:
+        x_value: 1
