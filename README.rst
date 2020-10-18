@@ -1,14 +1,13 @@
 nornir_dsl
 ##########
-
-DSL Format
-----------
-
 Just for fun making an Ansible-ish DSL with Nornir backend.  Currently more or less works with until, when, test, 
 and assert.  Filtering on inventory seems to work and imports work.  Want to add import of tasks, debugging keywords,
 templating, loops...a bunch of stuff.
 
 It uses decorators pretty heavily and quite a few evals but they are done safely using the python ast module.
+
+DSL Format
+----------
 
 .. code-block:: yaml
 
