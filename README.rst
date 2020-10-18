@@ -15,33 +15,33 @@ DSL Format
     - name: playbook1
       output: [results, failed_tests]
     
-    import:
-      - nornir_utils.plugins.tasks.data
-      - nornir_netmiko.tasks
+      import:
+        - nornir_utils.plugins.tasks.data
+        - nornir_netmiko.tasks
 
-    tasks_import:
-      - blah.yaml
+      tasks_import:
+        - blah.yaml
 
-    tasks:
-      - name: Run task with when and until
-        task: netmiko_send_command
-        kwargs:
-          command_string: show high-availability state
-          use_textfsm: true
-        when:
-          - task.host.platform == 'panos'
-        until:
-          - result.result['state'] == 'active'
+      tasks:
+        - name: Run task with when and until
+          task: netmiko_send_command
+          kwargs:
+            command_string: show high-availability state
+            use_textfsm: true
+          when:
+            - task.host.platform == 'panos'
+          until:
+            - result.result['state'] == 'active'
 
-      - name: Run task with test and assert
-        task: netmiko_send_command
-        kwargs:
-          command_string: show system info
-          use_textfsm: true
-        test:
-          - result.result['sw-version'] == '8.1.15'
-        assert:
-          - result.result.get('sw-version', None)
+        - name: Run task with test and assert
+          task: netmiko_send_command
+          kwargs:
+            command_string: show system info
+            use_textfsm: true
+          test:
+            - result.result['sw-version'] == '8.1.15'
+          assert:
+            - result.result.get('sw-version', None)
 
 Installation
 
