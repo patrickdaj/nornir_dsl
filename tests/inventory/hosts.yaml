@@ -5,4 +5,20 @@ localhost:
     password: testing
     platform: linux
     data:
+        x: 1
+        y: one
         x_value: 1
+test:
+    hostname: test
+    platform: centos
+    data:
+        x: 2
+        y: two
+        x_value: 2
+test2:
+    hostname: test2
+    platform: whatever
+    data:
+        x: 1
+        y: three
+        x_value: 3

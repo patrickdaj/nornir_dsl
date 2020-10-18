@@ -1,9 +1,9 @@
 import importlib
 from ruamel.yaml import load, SafeLoader
-from ipdb import launch_ipdb_on_exception, runcall
+from nornir.core.helpers.jinja_helper import render_from_string
 
 from nornir_dsl import modules
-
+from nornir_dsl.utils.safe_evals import InventoryVisitor
 
 default_callback = ["nornir_utils.plugins.functions.print_result", "print_result"]
 
@@ -20,6 +20,14 @@ def get_runner(nornir, playbook, step):
             "callback" if pb.get("callback", None) else default_callback[1],
         )
 
+        output = pb.pop("output", None)
+
+        if pb.get("filter", None):
+            inv_parser = InventoryVisitor()
+            filtered = nornir.filter(inv_parser.safe_eval(pb.get("filter")))
+        else:
+            filtered = nornir
+
         pb_vars = dict()
         pb_imports = dict()
 
@@ -29,16 +37,29 @@ def get_runner(nornir, playbook, step):
 
         for step in pb["tasks"]:
 
-            task = pb_imports[step.pop("task")]
+            if step.pop("debug", None):
+                print(f"debug where? {step.keys()}")
+                input()
+
+            main_task = step.pop("task", None)
+            
+            if not main_task:
+                print("Step has no task...skipping")
+                print(step)
+
+            task = pb_imports[main_task]
 
             register = step.pop("register", None)
+            set_fact = step.pop("set_fact", None)
 
             if step.get("when", None):
                 task = (modules.when(pb_vars, step.pop("when")))(task)
 
             if step.get("test", None):
-                fail_task = step.pop('fail_task', None)
-                task = (modules.test(pb_vars, step.pop("test"), fail_task))(task)
+                task = (modules.test(pb_vars, step.pop("test"), False))(task)
+
+            if step.get("assert", None):
+                task = (modules.test(pb_vars, step.pop("assert"), True))(task)
 
             if step.get("until", None):
                 retries = step.pop("retries", None)
@@ -58,7 +79,7 @@ def get_runner(nornir, playbook, step):
 
             task = (modules.template(pb_vars))(task)
 
-            results = nornir.run(task, **step)
+            results = filtered.run(task, **step['kwargs'])
 
             for result in results.values():
                 if not pb_vars.get(result.host.name, None):
@@ -68,4 +89,10 @@ def get_runner(nornir, playbook, step):
                 else:
                     pb_vars[result.host.name]["last"] = result
 
-            callback(results)
+                if set_fact:
+                    for fact_key in set_fact.keys():
+                        pb_vars[result.host.name].data[fact_key] = render_from_string(
+                            set_fact[fact_key], result
+                        )
+
+            callback(results, vars=output)

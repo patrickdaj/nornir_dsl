@@ -32,6 +32,14 @@ docs = ["sphinx"]
 tests = ["coverage[toml] (>=5.0.2)", "hypothesis", "pytest"]
 
 [[package]]
+name = "asteval"
+version = "0.9.19"
+description = "Safe, minimalistic evaluator of python expression using ast module"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[[package]]
 name = "async-generator"
 version = "1.10"
 description = "Async generators and context managers for Python 3.5+"
@@ -73,7 +81,7 @@ python-versions = "*"
 name = "bcrypt"
 version = "3.2.0"
 description = "Modern password hashing for your software and your servers"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -125,7 +133,7 @@ webencodings = "*"
 name = "certifi"
 version = "2020.6.20"
 description = "Python package for providing Mozilla's CA Bundle."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -133,7 +141,7 @@ python-versions = "*"
 name = "cffi"
 version = "1.14.3"
 description = "Foreign Function Interface for Python calling C code."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -144,7 +152,7 @@ pycparser = "*"
 name = "chardet"
 version = "3.0.4"
 description = "Universal encoding detector for Python 2 and 3"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -152,7 +160,7 @@ python-versions = "*"
 name = "ciscoconfparse"
 version = "1.5.19"
 description = "Parse, Audit, Query, Build, and Modify Cisco IOS-style configurations"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -171,17 +179,28 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
 name = "colorama"
-version = "0.4.3"
+version = "0.4.4"
 description = "Cross-platform colored terminal text."
 category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
+name = "commonmark"
+version = "0.9.1"
+description = "Python parser for the CommonMark Markdown spec"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+test = ["flake8 (3.7.8)", "hypothesis (3.55.3)"]
+
+[[package]]
 name = "cryptography"
 version = "3.1.1"
 description = "cryptography is a package which provides cryptographic recipes and primitives to Python developers."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
 
@@ -224,7 +243,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 name = "dnspython"
 version = "2.0.0"
 description = "DNS toolkit"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -247,7 +266,7 @@ python-versions = ">=2.7"
 name = "future"
 version = "0.18.2"
 description = "Clean single-source support for Python 3 and 2"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
@@ -255,7 +274,7 @@ python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 name = "idna"
 version = "2.10"
 description = "Internationalized Domain Names in Applications (IDNA)"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -278,7 +297,7 @@ testing = ["packaging", "pep517", "importlib-resources (>=1.3)"]
 name = "importlib-resources"
 version = "3.0.0"
 description = "Read resources from Python packages"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 
@@ -393,7 +412,7 @@ testing = ["Django (<3.1)", "colorama", "docopt", "pytest (>=3.9.0,<5.0.0)"]
 name = "jinja2"
 version = "2.11.2"
 description = "A very fast and expressive template engine."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
@@ -425,7 +444,7 @@ format_nongpl = ["idna", "jsonpointer (>1.13)", "webcolors", "rfc3986-validator 
 name = "junos-eznc"
 version = "2.5.3"
 description = "Junos 'EZ' automation for non-programmers"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -523,7 +542,7 @@ pygments = ">=2.4.1,<3"
 name = "lxml"
 version = "4.5.2"
 description = "Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, != 3.4.*"
 
@@ -537,7 +556,7 @@ source = ["Cython (>=0.29.7)"]
 name = "markupsafe"
 version = "1.1.1"
 description = "Safely add untrusted strings to HTML/XML markup."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*"
 
@@ -593,7 +612,7 @@ python-versions = "*"
 name = "napalm"
 version = "3.2.0"
 description = "Network Automation and Programmability Abstraction Layer with Multivendor support"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -684,7 +703,7 @@ test = ["pytest", "pytest-cov", "testpath"]
 name = "ncclient"
 version = "0.6.9"
 description = "Python library for NETCONF clients"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
@@ -705,7 +724,7 @@ python-versions = ">=3.5"
 name = "netaddr"
 version = "0.8.0"
 description = "A network address manipulation library for Python"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -716,7 +735,7 @@ importlib-resources = {version = "*", markers = "python_version < \"3.7\""}
 name = "netmiko"
 version = "3.3.2"
 description = "Multi-vendor library to simplify Paramiko SSH connections to network devices"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -752,7 +771,7 @@ docs = ["jupyter (>=1,<2)", "nbsphinx (>=0.5,<0.6)", "pygments (>=2,<3)", "sphin
 name = "nornir-jinja2"
 version = "0.1.0"
 description = "Jinja2 plugins for nornir"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6,<4.0"
 
@@ -764,7 +783,7 @@ nornir = ">=3.0.0b1,<3.1.0"
 name = "nornir-napalm"
 version = "0.1.1"
 description = "NAPALM's plugins for nornir"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6,<4.0"
 
@@ -776,7 +795,7 @@ nornir = ">=3.0.0b1,<3.1.0"
 name = "nornir-netmiko"
 version = "0.1.1"
 description = "Netmiko's plugins for nornir"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6,<4.0"
 
@@ -827,7 +846,7 @@ test = ["nose", "coverage", "requests", "nose-warnings-filters", "nbval", "nose-
 name = "ntc-templates"
 version = "1.6.0"
 description = "Package to return structured data from the output of network devices."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -861,7 +880,7 @@ python-versions = "*"
 name = "paramiko"
 version = "2.7.2"
 description = "SSH2 protocol library"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -891,7 +910,7 @@ testing = ["docopt", "pytest (>=3.0.7)"]
 name = "passlib"
 version = "1.7.4"
 description = "comprehensive password hashing framework supporting over 30 schemes"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -992,7 +1011,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 name = "pycparser"
 version = "2.20"
 description = "C parser in Python"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -1011,7 +1030,7 @@ snowballstemmer = "*"
 name = "pyeapi"
 version = "0.8.3"
 description = "Python Client for eAPI"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -1034,7 +1053,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 name = "pygments"
 version = "2.7.1"
 description = "Pygments is a syntax highlighting package written in Python."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -1056,7 +1075,7 @@ pyflakes = ">=1.5.0"
 name = "pynacl"
 version = "1.4.0"
 description = "Python binding to the Networking and Cryptography (NaCl) library"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -1072,7 +1091,7 @@ tests = ["pytest (>=3.2.1,<3.3.0 || >3.3.0)", "hypothesis (>=3.27.0)"]
 name = "pyparsing"
 version = "2.4.7"
 description = "Python parsing module"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
@@ -1088,7 +1107,7 @@ python-versions = ">=3.5"
 name = "pyserial"
 version = "3.4"
 description = "Python Serial Port Extension"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -1146,7 +1165,7 @@ python-versions = "*"
 name = "pyyaml"
 version = "5.3.1"
 description = "YAML parser and emitter for Python"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
@@ -1200,7 +1219,7 @@ python-versions = "*"
 name = "requests"
 version = "2.24.0"
 description = "Python HTTP for Humans."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
@@ -1213,6 +1232,24 @@ urllib3 = ">=1.21.1,<1.25.0 || >1.25.0,<1.25.1 || >1.25.1,<1.26"
 [package.extras]
 security = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)"]
 socks = ["PySocks (>=1.5.6,<1.5.7 || >1.5.7)", "win-inet-pton"]
+
+[[package]]
+name = "rich"
+version = "8.0.0"
+description = "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal"
+category = "main"
+optional = false
+python-versions = ">=3.6,<4.0"
+
+[package.dependencies]
+colorama = ">=0.4.0,<0.5.0"
+commonmark = ">=0.9.0,<0.10.0"
+dataclasses = {version = ">=0.7,<0.8", markers = "python_version >= \"3.6\" and python_version < \"3.7\""}
+pygments = ">=2.6.0,<3.0.0"
+typing-extensions = ">=3.7.4,<4.0.0"
+
+[package.extras]
+jupyter = ["ipywidgets (>=7.5.1,<8.0.0)"]
 
 [[package]]
 name = "ruamel.yaml"
@@ -1241,7 +1278,7 @@ python-versions = "*"
 name = "scp"
 version = "0.13.2"
 description = "scp module for paramiko"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -1260,7 +1297,7 @@ python-versions = "*"
 name = "six"
 version = "1.15.0"
 description = "Python 2 and 3 compatibility utilities"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 
@@ -1276,7 +1313,7 @@ python-versions = "*"
 name = "tenacity"
 version = "6.2.0"
 description = "Retry code until it succeeds"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -1314,7 +1351,7 @@ test = ["pathlib2"]
 name = "textfsm"
 version = "1.1.0"
 description = "Python module for parsing semi-structured text into python tables."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -1356,9 +1393,9 @@ test = ["pytest", "mock"]
 
 [[package]]
 name = "transitions"
-version = "0.8.3"
+version = "0.8.4"
 description = "A lightweight, object-oriented Python state machine implementation with many extensions."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -1389,7 +1426,7 @@ python-versions = "*"
 name = "urllib3"
 version = "1.25.10"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
 
@@ -1426,18 +1463,10 @@ python-versions = "*"
 notebook = ">=4.4.1"
 
 [[package]]
-name = "wrapt"
-version = "1.12.1"
-description = "Module for decorators, wrappers and monkey patching."
-category = "main"
-optional = false
-python-versions = "*"
-
-[[package]]
 name = "yamlordereddictloader"
 version = "0.4.0"
 description = "YAML loader and dump for PyYAML allowing to keep keys order."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -1448,7 +1477,7 @@ pyyaml = "*"
 name = "zipp"
 version = "3.3.0"
 description = "Backport of pathlib-compatible object wrapper for zip files"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -1459,7 +1488,7 @@ testing = ["pytest (>=3.5,<3.7.3 || >3.7.3)", "pytest-checkdocs (>=1.2.3)", "pyt
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6"
-content-hash = "307e117d7295b3bd17b358a1a121be20f5de57d8ed8cef971fd7f31052d220c8"
+content-hash = "c018f327888750188ed4b1377e03d8a97cced2ff54abdcede0befc54a7afa8c2"
 
 [metadata.files]
 appdirs = [
@@ -1487,6 +1516,9 @@ argon2-cffi = [
     {file = "argon2_cffi-20.1.0-cp37-cp37m-win_amd64.whl", hash = "sha256:6678bb047373f52bcff02db8afab0d2a77d83bde61cfecea7c5c62e2335cb203"},
     {file = "argon2_cffi-20.1.0-cp38-cp38-win32.whl", hash = "sha256:77e909cc756ef81d6abb60524d259d959bab384832f0c651ed7dcb6e5ccdbb78"},
     {file = "argon2_cffi-20.1.0-cp38-cp38-win_amd64.whl", hash = "sha256:9dfd5197852530294ecb5795c97a823839258dfd5eb9420233c7cfedec2058f2"},
+]
+asteval = [
+    {file = "asteval-0.9.19.tar.gz", hash = "sha256:445f3a59df692c0c0ff2868c0bbf9b293884db4a9f9a13c73555485ba75ed08b"},
 ]
 async-generator = [
     {file = "async_generator-1.10-py3-none-any.whl", hash = "sha256:01c7bf666359b4967d2cda0000cc2e4af16a0ae098cbffcb8472fb9e8ad6585b"},
@@ -1575,8 +1607,11 @@ click = [
     {file = "click-7.1.2.tar.gz", hash = "sha256:d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a"},
 ]
 colorama = [
-    {file = "colorama-0.4.3-py2.py3-none-any.whl", hash = "sha256:7d73d2a99753107a36ac6b455ee49046802e59d9d076ef8e47b61499fa29afff"},
-    {file = "colorama-0.4.3.tar.gz", hash = "sha256:e96da0d330793e2cb9485e9ddfd918d456036c7149416295932478192f4436a1"},
+    {file = "colorama-0.4.4-py2.py3-none-any.whl", hash = "sha256:9f47eda37229f68eee03b24b9748937c7dc3868f906e8ba69fbcbdd3bc5dc3e2"},
+]
+commonmark = [
+    {file = "commonmark-0.9.1-py2.py3-none-any.whl", hash = "sha256:da2f38c92590f83de410ba1a3cbceafbc74fee9def35f9251ba9a971d6d66fd9"},
+    {file = "commonmark-0.9.1.tar.gz", hash = "sha256:452f9dc859be7f06631ddcb328b6919c67984aca654e5fefb3914d54691aed60"},
 ]
 cryptography = [
     {file = "cryptography-3.1.1-cp27-cp27m-macosx_10_10_x86_64.whl", hash = "sha256:65beb15e7f9c16e15934569d29fb4def74ea1469d8781f6b3507ab896d6d8719"},
@@ -2079,6 +2114,10 @@ requests = [
     {file = "requests-2.24.0-py2.py3-none-any.whl", hash = "sha256:fe75cc94a9443b9246fc7049224f75604b113c36acb93f87b80ed42c44cbb898"},
     {file = "requests-2.24.0.tar.gz", hash = "sha256:b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"},
 ]
+rich = [
+    {file = "rich-8.0.0-py3-none-any.whl", hash = "sha256:3c5e4bb1e48c647bc75bc4ae7c125d399bec5b6ed2a319f0d447361635f02a9a"},
+    {file = "rich-8.0.0.tar.gz", hash = "sha256:1b5023d2241e6552a24ddfe830a853fc8e53da4e6a6ed6c7105bb262593edf97"},
+]
 "ruamel.yaml" = [
     {file = "ruamel.yaml-0.16.12-py2.py3-none-any.whl", hash = "sha256:012b9470a0ea06e4e44e99e7920277edf6b46eee0232a04487ea73a7386340a5"},
     {file = "ruamel.yaml-0.16.12.tar.gz", hash = "sha256:076cc0bc34f1966d920a49f18b52b6ad559fbe656a0748e3535cf7b3f29ebf9e"},
@@ -2158,8 +2197,8 @@ traitlets = [
     {file = "traitlets-4.3.3.tar.gz", hash = "sha256:d023ee369ddd2763310e4c3eae1ff649689440d4ae59d7485eb4cfbbe3e359f7"},
 ]
 transitions = [
-    {file = "transitions-0.8.3-py2.py3-none-any.whl", hash = "sha256:6e95c584d12eb2de49d347c06701fac95c7ec9a1ca3ffb10b684461c35ca00b4"},
-    {file = "transitions-0.8.3.tar.gz", hash = "sha256:e60203588a28d128fee17d0dc6c63de68702c42201c25494cea09917f220319a"},
+    {file = "transitions-0.8.4-py2.py3-none-any.whl", hash = "sha256:1238a081e95ff5aa4a8255dc2ad926cca234695afaf041f9515a2e06d6249f1c"},
+    {file = "transitions-0.8.4.tar.gz", hash = "sha256:9a2841b24789dfd345267cb92e26b79da75fd03f6021d1a5222c71b5c9ae3c16"},
 ]
 typed-ast = [
     {file = "typed_ast-1.4.1-cp35-cp35m-manylinux1_i686.whl", hash = "sha256:73d785a950fc82dd2a25897d525d003f6378d1cb23ab305578394694202a58c3"},
@@ -2204,9 +2243,6 @@ webencodings = [
 widgetsnbextension = [
     {file = "widgetsnbextension-3.5.1-py2.py3-none-any.whl", hash = "sha256:bd314f8ceb488571a5ffea6cc5b9fc6cba0adaf88a9d2386b93a489751938bcd"},
     {file = "widgetsnbextension-3.5.1.tar.gz", hash = "sha256:079f87d87270bce047512400efd70238820751a11d2d8cb137a5a5bdbaf255c7"},
-]
-wrapt = [
-    {file = "wrapt-1.12.1.tar.gz", hash = "sha256:b62ffa81fb85f4332a4f609cab4ac40709470da05643a082ec1eb88e6d9b97d7"},
 ]
 yamlordereddictloader = [
     {file = "yamlordereddictloader-0.4.0.tar.gz", hash = "sha256:7f30f0b99ea3f877f7cb340c570921fa9d639b7f69cba18be051e27f8de2080e"},

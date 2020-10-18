@@ -3,4 +3,4 @@ from .until import until
 from .when import when
 from .template import template
 
-__all__ = ["test", "until", "when"]
+__all__ = ["test", "until", "when", "template"]

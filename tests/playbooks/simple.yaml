@@ -1,5 +1,7 @@
 ---
 - name: Simple playbook
+  #filter: F(platform='linux')
+  output: [result, failed_tests]
 
   import:
     - nornir_utils.plugins.tasks.data
@@ -10,14 +12,15 @@
   tasks:
     - name: Echo Data Test
       task: echo_data
-      x: "{{ task.host['x_value'] }}"
-      y: [1, 2, 3]
-      #register: testing
+      kwargs:
+        x: "{{ task.host['x_value'] }}"
+        y: "{{ task.host['y'] }}"
 
     - name: Conditional execution
       task: echo_data
-      x: 10
-      test:
-        - result.result["x"] == 9
-      fail_task: true
-
+      kwargs:
+        x: "{{ task.host['x'] }}"
+      assert:
+        - result.result["x"] == "1"
+      check:
+        - result.result["x"] == "1"

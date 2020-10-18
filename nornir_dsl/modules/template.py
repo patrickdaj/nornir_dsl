@@ -1,7 +1,8 @@
 from functools import wraps
-from typing import Callable, Union, List, Dict, Any
+from typing import Callable, Dict, Any
 from nornir.core.task import Result
 from nornir.core.helpers.jinja_helper import render_from_string
+
 
 def template(
     pb_vars: Dict[str, Any],
@@ -14,8 +15,8 @@ def template(
                 host_vars = pb_vars.get(task.host.name)
             else:
                 host_vars = {}
-            
-            host_vars['task'] = task
+
+            host_vars["task"] = task
 
             for key, value in kwargs.items():
                 if isinstance(value, str):
