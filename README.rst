@@ -32,6 +32,9 @@ DSL Format
             - task.host.platform == 'panos'
           until:
             - result.result['state'] == 'active'
+          initial_delay: 15
+          retries: 10
+          delay: 15
 
         - name: Run task with test and assert
           task: netmiko_send_command
